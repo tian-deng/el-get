@@ -33,7 +33,7 @@
 
 (defconst el-get-script (or load-file-name buffer-file-name))
 
-(defcustom el-get-dir (expand-file-name "el-get" user-emacs-directory)
+(defcustom el-get-dir (concat my-local-dir "el-get/repos")
   "Path where to install the packages."
   :group 'el-get
   :type 'directory)
