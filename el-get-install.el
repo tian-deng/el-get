@@ -19,14 +19,14 @@
 (let ((el-get-root
        (file-name-as-directory
         (or (bound-and-true-p el-get-dir)
-            (concat (file-name-as-directory user-emacs-directory) "el-get")))))
+            (concat "~/.config/emacs/.local/el-get/" "repos")))))
 
   (unless (and (fboundp 'gnutls-available-p) (gnutls-available-p))
     (display-warning
      '(el-get tls)
      (concat "Your Emacs doesn't support HTTPS (TLS)"
              (if (eq system-type 'windows-nt)
-                 ",\n  see https://github.com/dimitri/el-get/wiki/Installation-on-Windows."
+                 ",\n  see https://github.com/tian-deng/el-get/wiki/Installation-on-Windows."
                "."))))
 
   (when (file-directory-p el-get-root)
@@ -43,7 +43,7 @@
            (git       (or (executable-find "git")
                           (error "Unable to find `git'")))
            (url       (or (bound-and-true-p el-get-git-install-url)
-                          "https://github.com/dimitri/el-get.git"))
+                          "https://github.com/tian-deng/el-get.git"))
            (default-directory el-get-root)
            (process-connection-type nil)   ; pipe, no pty (--no-progress)
 
